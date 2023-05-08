@@ -9,24 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="373fc4c5-b4be-4bc7-b22a-21241f4af20e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/mpui_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/json-20230227.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ua/nekotov/mpui/mpui/hello-view.fxml" afterDir="false" />
+    <list default="true" id="373fc4c5-b4be-4bc7-b22a-21241f4af20e" name="Changes" comment="working proto">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ua/nekotov/mpui/mpui/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ua/nekotov/mpui/mpui/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,11 +88,34 @@
       <workItem from="1683546594315" duration="1802000" />
       <workItem from="1683548417580" duration="5070000" />
       <workItem from="1683554022365" duration="225000" />
-      <workItem from="1683554254115" duration="9149000" />
+      <workItem from="1683554254115" duration="11587000" />
     </task>
+    <task id="LOCAL-00001" summary="working proto">
+      <created>1683574055792</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683574055792</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="working proto" />
+    <option name="LAST_COMMIT_MESSAGE" value="working proto" />
   </component>
 </project>

@@ -1,16 +1,22 @@
 package ua.nekotov.mpui.mpui;
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class HelloController {
     @FXML
@@ -28,8 +34,44 @@ public class HelloController {
         System.out.println("search clicked");
         Effect effect = new DropShadow();
 
-        // deletate all ckeckboxes from hboxmain
         hboxmain.getChildren().clear();
+
+        table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        MenuItem item = new MenuItem("Copy");
+        item.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                ObservableList rowList = (ObservableList) table.getSelectionModel().getSelectedItems();
+
+                StringBuilder clipboardString = new StringBuilder();
+
+                // rowList.get(0) Itterator
+                Iterator rowIterator = rowList.iterator();
+                for (int i = 0; i < rowList.size(); i++) {
+                    String cell = rowIterator.next().toString();
+                    clipboardString.append(cell);
+                    clipboardString.append("\n");
+
+                }
+                final ClipboardContent content = new ClipboardContent();
+
+                content.putString(clipboardString.toString());
+                Clipboard.getSystemClipboard().setContent(content);
+            }
+        });
+        ContextMenu menu = new ContextMenu();
+        menu.getItems().add(item);
+        table.setContextMenu(menu);
+
+
+
+        if(bottomhbox.getChildren().size() == 0){
+            bottomhbox.getChildren().add(searchQ);
+            bottomhbox.getChildren().add(search);
+            hboxmain.getChildren().remove(searchQ);
+            hboxmain.getChildren().remove(search);
+        }
 
         search.setEffect(effect);
         table.getItems().clear();
@@ -91,7 +133,8 @@ public class HelloController {
             });
             vb.getChildren().add(tf);
             vb.getChildren().add(cb);
-            hboxmain.getChildren().add(vb);
+                hboxmain.getChildren().add(vb);
+
             table.getColumns().add(column);
         }
 

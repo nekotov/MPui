@@ -132,6 +132,39 @@ public class MP {
             this.categoryName = categoryName;
         }
 
+        @Override
+        public String toString() {
+            return this.itemId + "\t" + this.title + "\t" + this.description + "\t" + this.priceCents + "\t" + this.priceType + "\t" + this.cityName + "\t" + this.countryName + "\t" + this.countryAbbreviation + "\t" + this.distanceMeters + "\t" + this.isBuyerLocation + "\t" + this.onCountryLevel + "\t" + this.abroad + "\t" + this.latitude + "\t" + this.longitude + "\t" + this.date + "\t" + this.imageUrls + "\t" + this.sellerId + "\t" + this.sellerName + "\t" + this.showSoiUrl + "\t" + this.showWebsiteUrl + "\t" + this.isVerified + "\t" + this.categoryId + "\t" + this.categoryName;
+        }
+
+        public ArrayList<String> getArray() {
+            ArrayList<String> array = new ArrayList<String>();
+            array.add(this.itemId);
+            array.add(this.title);
+            array.add(this.description);
+            array.add(Integer.toString(this.priceCents));
+            array.add(this.priceType);
+            array.add(this.cityName);
+            array.add(this.countryName);
+            array.add(this.countryAbbreviation);
+            array.add(Integer.toString(this.distanceMeters));
+            array.add(Boolean.toString(this.isBuyerLocation));
+            array.add(Boolean.toString(this.onCountryLevel));
+            array.add(Boolean.toString(this.abroad));
+            array.add(Float.toString(this.latitude));
+            array.add(Float.toString(this.longitude));
+            array.add(this.date);
+            array.add(this.imageUrls.toString());
+            array.add(Integer.toString(this.sellerId));
+            array.add(this.sellerName);
+            array.add(Boolean.toString(this.showSoiUrl));
+            array.add(Boolean.toString(this.showWebsiteUrl));
+            array.add(Boolean.toString(this.isVerified));
+            array.add(Integer.toString(this.categoryId));
+            array.add(this.categoryName);
+            return array;
+        }
+
 
         public static ArrayList<Products> get(String args, int start, int pages) throws IOException {
 

@@ -16,6 +16,6 @@
       <columnResizePolicy>
          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
       </columnResizePolicy></TableView>
-   <HBox prefHeight="100.0" prefWidth="200.0" />
+   <HBox fx:id="bottomhbox" prefHeight="100.0" prefWidth="200.0" />
    
 </VBox>
