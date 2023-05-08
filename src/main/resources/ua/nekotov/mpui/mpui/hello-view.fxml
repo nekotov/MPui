@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.nekotov.mpui.mpui.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <HBox fx:id="hboxmain">
+        <TextField fx:id="searchQ" />
+        <Button fx:id="search" mnemonicParsing="false" onMouseClicked="#searchClicked" text="Search" />
+    </HBox>
+   <TableView fx:id="table" cache="true" cacheHint="SCALE" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy></TableView>
+   <HBox prefHeight="100.0" prefWidth="200.0" />
+   
+</VBox>
