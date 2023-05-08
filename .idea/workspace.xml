@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="373fc4c5-b4be-4bc7-b22a-21241f4af20e" name="Changes" comment="working proto">
+    <list default="true" id="373fc4c5-b4be-4bc7-b22a-21241f4af20e" name="Changes" comment="added coppy of row(s)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ua/nekotov/mpui/mpui/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ua/nekotov/mpui/mpui/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,7 @@
       <workItem from="1683546594315" duration="1802000" />
       <workItem from="1683548417580" duration="5070000" />
       <workItem from="1683554022365" duration="225000" />
-      <workItem from="1683554254115" duration="11587000" />
+      <workItem from="1683554254115" duration="16316000" />
     </task>
     <task id="LOCAL-00001" summary="working proto">
       <created>1683574055792</created>
@@ -97,7 +96,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683574055792</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added coppy of row(s)">
+      <created>1683576668298</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683576668298</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added coppy of row(s)">
+      <created>1683576681245</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683576681245</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +129,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working proto" />
-    <option name="LAST_COMMIT_MESSAGE" value="working proto" />
+    <MESSAGE value="added copy of row(s)" />
+    <MESSAGE value="added coppy of row(s)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added coppy of row(s)" />
   </component>
 </project>

@@ -239,6 +239,12 @@ public class MP {
                     item_count += arr.length();
                 }
 
+                try {
+                    Thread.sleep(1234); // 1 sec speep
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
             } while ((item_count % 100 == 0) && ((item_count - start) < (pages * 100)));
 
             return out;

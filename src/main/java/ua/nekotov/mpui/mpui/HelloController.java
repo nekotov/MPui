@@ -13,10 +13,10 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class HelloController {
     @FXML
@@ -38,15 +38,15 @@ public class HelloController {
 
         table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         MenuItem item = new MenuItem("Copy");
+
         item.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
-                ObservableList rowList = (ObservableList) table.getSelectionModel().getSelectedItems();
+                ObservableList rowList = table.getSelectionModel().getSelectedItems();
 
                 StringBuilder clipboardString = new StringBuilder();
 
-                // rowList.get(0) Itterator
                 Iterator rowIterator = rowList.iterator();
                 for (int i = 0; i < rowList.size(); i++) {
                     String cell = rowIterator.next().toString();
@@ -64,10 +64,17 @@ public class HelloController {
         menu.getItems().add(item);
         table.setContextMenu(menu);
 
-
-
         if(bottomhbox.getChildren().size() == 0){
             bottomhbox.getChildren().add(searchQ);
+
+            TextField Pages = new TextField();
+            Pages.setPromptText("Pages");
+            Pages.textProperty().addListener((observable, oldValue, newValue) -> {
+                if (!newValue.matches("\\d*")) {
+                    Pages.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            });
+            bottomhbox.getChildren().add(Pages);
             bottomhbox.getChildren().add(search);
             hboxmain.getChildren().remove(searchQ);
             hboxmain.getChildren().remove(search);
@@ -79,7 +86,34 @@ public class HelloController {
         //table.getColumns().add(new TableColumn("Price"));
         ArrayList<MP.Products> prod = new ArrayList<>();
         try {
-            prod = MP.Products.get(searchQ.getText());
+            // check if bottomhbox has TextField Pages
+            AtomicBoolean bool = new AtomicBoolean(false);
+            bottomhbox.getChildren().forEach(node -> {
+                if (node instanceof TextField) {
+                    if (((TextField) node).getPromptText().equals("Pages")) {
+                        bool.set(true);
+                    }
+                }
+            });
+
+            int i = 0;
+            if(bool.get()){
+                TextField Pages = (TextField) bottomhbox.getChildren().get(1);
+                if(Pages.getText().length() == 0){
+                    i = 0;
+                }else{
+                    i = Integer.parseInt(Pages.getText());
+                }
+            }
+
+            if(bool.get()){
+                for(int j = 0; j < i; j++){
+                    prod.addAll(MP.Products.get(searchQ.getText(),j*100, j));
+                }
+
+            }else{
+                prod = MP.Products.get(searchQ.getText());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
