@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="373fc4c5-b4be-4bc7-b22a-21241f4af20e" name="Changes" comment="removed image uri`s from table">
+    <list default="true" id="373fc4c5-b4be-4bc7-b22a-21241f4af20e" name="Changes" comment="added copy as JSON">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +112,7 @@
       <workItem from="1683554022365" duration="225000" />
       <workItem from="1683554254115" duration="18962000" />
       <workItem from="1683615688498" duration="3388000" />
-      <workItem from="1683619124298" duration="1406000" />
+      <workItem from="1683619124298" duration="5464000" />
     </task>
     <task id="LOCAL-00001" summary="working proto">
       <created>1683574055792</created>
@@ -170,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683619592267</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added copy as JSON">
+      <created>1683620863852</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683620863852</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +209,7 @@
     <MESSAGE value="removed errors form search" />
     <MESSAGE value="fixed dupes" />
     <MESSAGE value="removed image uri`s from table" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed image uri`s from table" />
+    <MESSAGE value="added copy as JSON" />
+    <option name="LAST_COMMIT_MESSAGE" value="added copy as JSON" />
   </component>
 </project>
