@@ -106,7 +106,7 @@ public class HelloController {
                 }
             }
 
-            if(bool.get()){
+            if(bool.get() && i > 0){
                 for(int j = 0; j < i; j++){
                     prod.addAll(MP.Products.get(searchQ.getText(),j*100, j));
                 }

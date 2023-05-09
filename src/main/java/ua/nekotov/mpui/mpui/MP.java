@@ -85,7 +85,6 @@ public class MP {
         public String countryName;
         public String countryAbbreviation;
         public int distanceMeters;
-        public boolean isBuyerLocation;
         public boolean onCountryLevel;
         public boolean abroad;
         public float latitude;
@@ -100,13 +99,12 @@ public class MP {
         public String sellerName;
         public boolean showSoiUrl;
         public boolean showWebsiteUrl;
-        public boolean isVerified;
 
 
         public int categoryId;
         public String categoryName;
 
-        public void Products(String itemId, String title, String description, int priceCents, String priceType, String cityName, String countryName, String countryAbbreviation, int distanceMeters, boolean isBuyerLocation, boolean onCountryLevel, boolean abroad, float latitude, float longitude, String date, String[] imageUrls, int sellerId, String sellerName, boolean showSoiUrl, boolean showWebsiteUrl, boolean isVerified, int categoryId, String categoryName) {
+        public void Products(String itemId, String title, String description, int priceCents, String priceType, String cityName, String countryName, String countryAbbreviation, int distanceMeters, boolean onCountryLevel, boolean abroad, float latitude, float longitude, String date, String[] imageUrls, int sellerId, String sellerName, boolean showSoiUrl, boolean showWebsiteUrl, int categoryId, String categoryName) {
             this.itemId = itemId;
             this.title = title;
             this.description = description;
@@ -116,7 +114,6 @@ public class MP {
             this.countryName = countryName;
             this.countryAbbreviation = countryAbbreviation;
             this.distanceMeters = distanceMeters;
-            this.isBuyerLocation = isBuyerLocation;
             this.onCountryLevel = onCountryLevel;
             this.abroad = abroad;
             this.latitude = latitude;
@@ -127,14 +124,13 @@ public class MP {
             this.sellerName = sellerName;
             this.showSoiUrl = showSoiUrl;
             this.showWebsiteUrl = showWebsiteUrl;
-            this.isVerified = isVerified;
             this.categoryId = categoryId;
             this.categoryName = categoryName;
         }
 
         @Override
         public String toString() {
-            return this.itemId + "\t" + this.title + "\t" + this.description + "\t" + this.priceCents + "\t" + this.priceType + "\t" + this.cityName + "\t" + this.countryName + "\t" + this.countryAbbreviation + "\t" + this.distanceMeters + "\t" + this.isBuyerLocation + "\t" + this.onCountryLevel + "\t" + this.abroad + "\t" + this.latitude + "\t" + this.longitude + "\t" + this.date + "\t" + this.imageUrls + "\t" + this.sellerId + "\t" + this.sellerName + "\t" + this.showSoiUrl + "\t" + this.showWebsiteUrl + "\t" + this.isVerified + "\t" + this.categoryId + "\t" + this.categoryName;
+            return this.itemId + "\t" + this.title + "\t" + this.description + "\t" + this.priceCents + "\t" + this.priceType + "\t" + this.cityName + "\t" + this.countryName + "\t" + this.countryAbbreviation + "\t" + this.distanceMeters + "\t" + this.onCountryLevel + "\t" + this.abroad + "\t" + this.latitude + "\t" + this.longitude + "\t" + this.date + "\t" + this.imageUrls + "\t" + this.sellerId + "\t" + this.sellerName + "\t" + this.showSoiUrl + "\t" + this.showWebsiteUrl + "\t" + this.categoryId + "\t" + this.categoryName;
         }
 
         public ArrayList<String> getArray() {
@@ -148,7 +144,6 @@ public class MP {
             array.add(this.countryName);
             array.add(this.countryAbbreviation);
             array.add(Integer.toString(this.distanceMeters));
-            array.add(Boolean.toString(this.isBuyerLocation));
             array.add(Boolean.toString(this.onCountryLevel));
             array.add(Boolean.toString(this.abroad));
             array.add(Float.toString(this.latitude));
@@ -159,7 +154,6 @@ public class MP {
             array.add(this.sellerName);
             array.add(Boolean.toString(this.showSoiUrl));
             array.add(Boolean.toString(this.showWebsiteUrl));
-            array.add(Boolean.toString(this.isVerified));
             array.add(Integer.toString(this.categoryId));
             array.add(this.categoryName);
             return array;
@@ -206,7 +200,6 @@ public class MP {
                         if (location.has("countryAbbreviation"))
                             add.countryAbbreviation = location.getString("countryAbbreviation");
                         add.distanceMeters = location.getInt("distanceMeters");
-                        add.isBuyerLocation = location.getBoolean("isBuyerLocation");
                         add.onCountryLevel = location.getBoolean("onCountryLevel");
                         add.abroad = location.getBoolean("abroad");
                         add.latitude = location.getFloat("latitude");
@@ -227,8 +220,6 @@ public class MP {
                         add.sellerName = sellerInformation.getString("sellerName");
                         add.showSoiUrl = sellerInformation.getBoolean("showSoiUrl");
                         add.showWebsiteUrl = sellerInformation.getBoolean("showWebsiteUrl");
-                        if(sellerInformation.has("isVerified"))
-                            add.isVerified = sellerInformation.getBoolean("isVerified");
                         add.categoryId = arr.getJSONObject(i).getInt("categoryId");
                         if (arr.getJSONObject(i).has("categoryName"))
                             add.categoryName = arr.getJSONObject(i).getString("categoryName");
@@ -327,13 +318,6 @@ public class MP {
             this.distanceMeters = distanceMeters;
         }
 
-        public boolean isBuyerLocation() {
-            return isBuyerLocation;
-        }
-
-        public void setBuyerLocation(boolean buyerLocation) {
-            isBuyerLocation = buyerLocation;
-        }
 
         public boolean isOnCountryLevel() {
             return onCountryLevel;
@@ -413,14 +397,6 @@ public class MP {
 
         public void setShowWebsiteUrl(boolean showWebsiteUrl) {
             this.showWebsiteUrl = showWebsiteUrl;
-        }
-
-        public boolean isVerified() {
-            return isVerified;
-        }
-
-        public void setVerified(boolean verified) {
-            isVerified = verified;
         }
 
         public int getCategoryId() {
