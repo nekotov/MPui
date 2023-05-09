@@ -83,10 +83,8 @@ public class HelloController {
         search.setEffect(effect);
         table.getItems().clear();
         table.getColumns().clear();
-        //table.getColumns().add(new TableColumn("Price"));
         ArrayList<MP.Products> prod = new ArrayList<>();
         try {
-            // check if bottomhbox has TextField Pages
             AtomicBoolean bool = new AtomicBoolean(false);
             bottomhbox.getChildren().forEach(node -> {
                 if (node instanceof TextField) {
@@ -120,10 +118,13 @@ public class HelloController {
         for (Field f : fields) {
             TableColumn<MP.Products, String> column = new TableColumn<>(f.getName());
             column.setCellValueFactory(new PropertyValueFactory<>(f.getName()));
+            // add support for String array
+            if (f.getType().equals(String[].class)) {
+                continue;
+            }
             VBox vb = new VBox();
             CheckBox cb = new CheckBox(f.getName());
             cb.setSelected(true);
-            // onclick hide column
             cb.setOnAction(event -> {
                 if (cb.isSelected()) {
                     column.setVisible(true);
@@ -135,7 +136,6 @@ public class HelloController {
             TextField tf = new TextField();
             tf.setPromptText(f.getName());
 
-            // tf on edit act as filter for column
             ArrayList<MP.Products> finalProd = prod;
 
             tf.textProperty().addListener((observable, oldValue, newValue) -> {

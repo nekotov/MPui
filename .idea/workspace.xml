@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="373fc4c5-b4be-4bc7-b22a-21241f4af20e" name="Changes" comment="removed errors form search">
+    <list default="true" id="373fc4c5-b4be-4bc7-b22a-21241f4af20e" name="Changes" comment="fixed dupes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nekotov/mpui/mpui/MP.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,8 @@
       <workItem from="1683548417580" duration="5070000" />
       <workItem from="1683554022365" duration="225000" />
       <workItem from="1683554254115" duration="18962000" />
-      <workItem from="1683615688498" duration="2790000" />
+      <workItem from="1683615688498" duration="3388000" />
+      <workItem from="1683619124298" duration="336000" />
     </task>
     <task id="LOCAL-00001" summary="working proto">
       <created>1683574055792</created>
@@ -145,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683615546948</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixed dupes">
+      <created>1683618842986</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683618842986</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +182,7 @@
     <MESSAGE value="added multipage scraping" />
     <MESSAGE value="license added" />
     <MESSAGE value="removed errors form search" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed errors form search" />
+    <MESSAGE value="fixed dupes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed dupes" />
   </component>
 </project>
