@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -31,7 +32,6 @@ public class HelloController {
     private HBox bottomhbox;
 
     public void searchClicked(){
-        System.out.println("search clicked");
         Effect effect = new DropShadow();
 
         hboxmain.getChildren().clear();
@@ -107,10 +107,7 @@ public class HelloController {
             }
 
             if(bool.get() && i > 0){
-                for(int j = 0; j < i; j++){
-                    prod.addAll(MP.Products.get(searchQ.getText(),j*100, j));
-                }
-
+                prod.addAll(MP.Products.get(searchQ.getText(),0, i));
             }else{
                 prod = MP.Products.get(searchQ.getText());
             }
@@ -121,8 +118,6 @@ public class HelloController {
 
         Field[] fields = MP.Products.class.getFields();
         for (Field f : fields) {
-            System.out.println(f.getName());
-
             TableColumn<MP.Products, String> column = new TableColumn<>(f.getName());
             column.setCellValueFactory(new PropertyValueFactory<>(f.getName()));
             VBox vb = new VBox();
@@ -153,8 +148,10 @@ public class HelloController {
                             continue;
                         }
                         try {
+                            if(f.get(p) == null){
+                                continue;
+                            }
                             if (f.get(p).toString().contains(newValue)) {
-                                System.out.println("found "+p.title);
                                 table.getItems().add(p);
                             }
                         } catch (IllegalAccessException e) {
@@ -172,9 +169,7 @@ public class HelloController {
             table.getColumns().add(column);
         }
 
-        for (MP.Products p : prod) {
-            table.getItems().add(p);
-        }
+        Arrays.stream(prod.toArray()).forEach(p -> table.getItems().add(p));
 
 
 

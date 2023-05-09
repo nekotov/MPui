@@ -80,13 +80,7 @@ public class MP {
         public int priceCents;
         public String priceType;
 
-
         public String cityName;
-        public String countryName;
-        public String countryAbbreviation;
-        public int distanceMeters;
-        public boolean onCountryLevel;
-        public boolean abroad;
         public float latitude;
         public float longitude;
 
@@ -97,12 +91,8 @@ public class MP {
 
         public int sellerId;
         public String sellerName;
-        public boolean showSoiUrl;
         public boolean showWebsiteUrl;
-
-
         public int categoryId;
-        public String categoryName;
 
         public void Products(String itemId, String title, String description, int priceCents, String priceType, String cityName, String countryName, String countryAbbreviation, int distanceMeters, boolean onCountryLevel, boolean abroad, float latitude, float longitude, String date, String[] imageUrls, int sellerId, String sellerName, boolean showSoiUrl, boolean showWebsiteUrl, int categoryId, String categoryName) {
             this.itemId = itemId;
@@ -111,26 +101,19 @@ public class MP {
             this.priceCents = priceCents;
             this.priceType = priceType;
             this.cityName = cityName;
-            this.countryName = countryName;
-            this.countryAbbreviation = countryAbbreviation;
-            this.distanceMeters = distanceMeters;
-            this.onCountryLevel = onCountryLevel;
-            this.abroad = abroad;
             this.latitude = latitude;
             this.longitude = longitude;
             this.date = date;
             this.imageUrls = imageUrls;
             this.sellerId = sellerId;
             this.sellerName = sellerName;
-            this.showSoiUrl = showSoiUrl;
             this.showWebsiteUrl = showWebsiteUrl;
             this.categoryId = categoryId;
-            this.categoryName = categoryName;
         }
 
         @Override
         public String toString() {
-            return this.itemId + "\t" + this.title + "\t" + this.description + "\t" + this.priceCents + "\t" + this.priceType + "\t" + this.cityName + "\t" + this.countryName + "\t" + this.countryAbbreviation + "\t" + this.distanceMeters + "\t" + this.onCountryLevel + "\t" + this.abroad + "\t" + this.latitude + "\t" + this.longitude + "\t" + this.date + "\t" + this.imageUrls + "\t" + this.sellerId + "\t" + this.sellerName + "\t" + this.showSoiUrl + "\t" + this.showWebsiteUrl + "\t" + this.categoryId + "\t" + this.categoryName;
+            return this.itemId + "\t" + this.title + "\t" + this.description + "\t" + this.priceCents + "\t" + this.priceType + "\t" + this.cityName + "\t" + this.latitude + "\t" + this.longitude + "\t" + this.date + "\t" + this.imageUrls + "\t" + this.sellerId + "\t" + this.sellerName + "\t" + this.showWebsiteUrl + "\t" + this.categoryId;
         }
 
         public ArrayList<String> getArray() {
@@ -141,21 +124,14 @@ public class MP {
             array.add(Integer.toString(this.priceCents));
             array.add(this.priceType);
             array.add(this.cityName);
-            array.add(this.countryName);
-            array.add(this.countryAbbreviation);
-            array.add(Integer.toString(this.distanceMeters));
-            array.add(Boolean.toString(this.onCountryLevel));
-            array.add(Boolean.toString(this.abroad));
             array.add(Float.toString(this.latitude));
             array.add(Float.toString(this.longitude));
             array.add(this.date);
             array.add(this.imageUrls.toString());
             array.add(Integer.toString(this.sellerId));
             array.add(this.sellerName);
-            array.add(Boolean.toString(this.showSoiUrl));
             array.add(Boolean.toString(this.showWebsiteUrl));
             array.add(Integer.toString(this.categoryId));
-            array.add(this.categoryName);
             return array;
         }
 
@@ -195,13 +171,6 @@ public class MP {
                         JSONObject location = arr.getJSONObject(i).getJSONObject("location");
                         if (location.has("cityName"))
                             add.cityName = location.getString("cityName");
-                        if (location.has("countryName"))
-                            add.countryName = location.getString("countryName");
-                        if (location.has("countryAbbreviation"))
-                            add.countryAbbreviation = location.getString("countryAbbreviation");
-                        add.distanceMeters = location.getInt("distanceMeters");
-                        add.onCountryLevel = location.getBoolean("onCountryLevel");
-                        add.abroad = location.getBoolean("abroad");
                         add.latitude = location.getFloat("latitude");
                         add.longitude = location.getFloat("longitude");
 
@@ -218,23 +187,22 @@ public class MP {
                         JSONObject sellerInformation = arr.getJSONObject(i).getJSONObject("sellerInformation");
                         add.sellerId = sellerInformation.getInt("sellerId");
                         add.sellerName = sellerInformation.getString("sellerName");
-                        add.showSoiUrl = sellerInformation.getBoolean("showSoiUrl");
                         add.showWebsiteUrl = sellerInformation.getBoolean("showWebsiteUrl");
                         add.categoryId = arr.getJSONObject(i).getInt("categoryId");
-                        if (arr.getJSONObject(i).has("categoryName"))
-                            add.categoryName = arr.getJSONObject(i).getString("categoryName");
                         out.add(add);
                         System.out.println(add.title);
 
                     }
                     item_count += arr.length();
+                }catch(Exception e){
+                    return out;
                 }
 
-                try {
-                    Thread.sleep(1234); // 1 sec speep
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    Thread.sleep(1234); // 1 sec speep
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
 
             } while ((item_count % 100 == 0) && ((item_count - start) < (pages * 100)));
 
@@ -245,6 +213,9 @@ public class MP {
         public static ArrayList<Products> get(String args) throws IOException {
             return get(args, 0, 1);
         }
+
+        // create imageurs tostring()
+
 
         public String getItemId() {
             return itemId;
@@ -292,47 +263,6 @@ public class MP {
 
         public void setCityName(String cityName) {
             this.cityName = cityName;
-        }
-
-        public String getCountryName() {
-            return countryName;
-        }
-
-        public void setCountryName(String countryName) {
-            this.countryName = countryName;
-        }
-
-        public String getCountryAbbreviation() {
-            return countryAbbreviation;
-        }
-
-        public void setCountryAbbreviation(String countryAbbreviation) {
-            this.countryAbbreviation = countryAbbreviation;
-        }
-
-        public int getDistanceMeters() {
-            return distanceMeters;
-        }
-
-        public void setDistanceMeters(int distanceMeters) {
-            this.distanceMeters = distanceMeters;
-        }
-
-
-        public boolean isOnCountryLevel() {
-            return onCountryLevel;
-        }
-
-        public void setOnCountryLevel(boolean onCountryLevel) {
-            this.onCountryLevel = onCountryLevel;
-        }
-
-        public boolean isAbroad() {
-            return abroad;
-        }
-
-        public void setAbroad(boolean abroad) {
-            this.abroad = abroad;
         }
 
         public float getLatitude() {
@@ -383,14 +313,6 @@ public class MP {
             this.sellerName = sellerName;
         }
 
-        public boolean isShowSoiUrl() {
-            return showSoiUrl;
-        }
-
-        public void setShowSoiUrl(boolean showSoiUrl) {
-            this.showSoiUrl = showSoiUrl;
-        }
-
         public boolean isShowWebsiteUrl() {
             return showWebsiteUrl;
         }
@@ -407,12 +329,5 @@ public class MP {
             this.categoryId = categoryId;
         }
 
-        public String getCategoryName() {
-            return categoryName;
-        }
-
-        public void setCategoryName(String categoryName) {
-            this.categoryName = categoryName;
-        }
     }
 }
