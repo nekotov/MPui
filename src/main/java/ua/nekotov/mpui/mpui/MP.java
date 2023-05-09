@@ -5,11 +5,13 @@ import org.json.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class MP {
@@ -113,8 +115,29 @@ public class MP {
 
         @Override
         public String toString() {
-            return this.itemId + "\t" + this.title + "\t" + this.description + "\t" + this.priceCents + "\t" + this.priceType + "\t" + this.cityName + "\t" + this.latitude + "\t" + this.longitude + "\t" + this.date + "\t" + this.imageUrls + "\t" + this.sellerId + "\t" + this.sellerName + "\t" + this.showWebsiteUrl + "\t" + this.categoryId;
+            Field fields[] = this.getClass().getDeclaredFields();
+            StringBuilder sb = new StringBuilder();
+            for (Field field : fields) {
+                try {
+                    if(field.getName().equals("imageUrls")) {
+                        sb.append("imageUrls: " + Arrays.toString(this.imageUrls) + "\n");
+                    } else {
+                        try {
+                            sb.append(field.getName() + ": " + field.get(this) + "\n");
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            return sb.toString();
+
         }
+
+
 
         public ArrayList<String> getArray() {
             ArrayList<String> array = new ArrayList<String>();
@@ -213,8 +236,6 @@ public class MP {
         public static ArrayList<Products> get(String args) throws IOException {
             return get(args, 0, 1);
         }
-
-        // create imageurs tostring()
 
 
         public String getItemId() {
@@ -328,6 +349,19 @@ public class MP {
         public void setCategoryId(int categoryId) {
             this.categoryId = categoryId;
         }
+        // creae toJSON() method
+        public String toJSON() {
+            Field[] fields = this.getClass().getDeclaredFields();
 
+            JSONObject obj = new JSONObject();
+            for (Field field : fields) {
+                try {
+                    obj.put(field.getName(), field.get(this));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return obj.toString();
+        }
     }
 }

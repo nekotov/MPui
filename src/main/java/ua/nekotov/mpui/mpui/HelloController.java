@@ -39,6 +39,31 @@ public class HelloController {
         table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         MenuItem item = new MenuItem("Copy");
 
+        // add copy as json to clipboard
+        MenuItem json = new MenuItem("Copy as JSON");
+
+        json.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+            ObservableList rowList = table.getSelectionModel().getSelectedItems();
+
+                StringBuilder clipboardString = new StringBuilder();
+
+                Iterator rowIterator = rowList.iterator();
+                for (int i = 0; i < rowList.size(); i++) {
+                    MP.Products product = (MP.Products) rowIterator.next();
+                    clipboardString.append(product.toJSON());
+                    clipboardString.append("\n");
+
+                }
+                final ClipboardContent content = new ClipboardContent();
+
+                content.putString(clipboardString.toString());
+                Clipboard.getSystemClipboard().setContent(content);
+
+            }
+        });
+
         item.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -62,6 +87,7 @@ public class HelloController {
         });
         ContextMenu menu = new ContextMenu();
         menu.getItems().add(item);
+        menu.getItems().add(json);
         table.setContextMenu(menu);
 
         if(bottomhbox.getChildren().size() == 0){
